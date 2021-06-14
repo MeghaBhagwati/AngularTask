@@ -1,0 +1,224 @@
+<div class="container">
+  <div class="border">
+    <button class="btn btn-md btn-outline-primary" (click)="open(content)">
+      <i class="fa fa-user"></i>New User</button>
+  </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+
+      <tr>
+        <th>userId</th>
+        <th>userName</th>
+        <th>userSurname</th>
+        <th>userPincode</th>
+        
+        <th>userDob</th>
+        <th>userDoj</th>
+        <th>active</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td><span>{{user.userId}}</span></td>
+        <td><span>{{user.userName}}</span></td>
+        <td><span>{{user.userSurname}}</span></td>
+        <td><span>{{user.userPincode}}</span></td>
+        <td><span>{{user.userDob}}</span></td>
+        <td><span>{{user.userDoj}}</span></td>
+        <td><span>{{user.active}}</span></td>
+        <td>
+          <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails,user)">
+            <i class="fa fa-search"></i>Details</button>
+          <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit,user)">
+            <i class="fa fa-edit"></i>Edit</button>
+          <button class="btn btn-sm btn-danger">
+            <i class="fa fa-remove"></i>Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New User</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+          <label for="userId">userId</label>
+          <div class="input-group">
+            <input id="userId" name="userId"class="form-control" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userName">userName</label>
+          <div class="input-group">
+            <input id="userName"name="userName" class="form-control" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userSurname">userSurname</label>
+          <div class="input-group">
+            <input id="userSurname" name="userSurname" class="form-control" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userPincode">userPincode</label>
+          <div class="input-group">
+            <input id="userPincode" name="userPincode" class="form-control" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userDob">userDob</label>
+          <div class="input-group">
+            <input id="userDob" name="userDob" class="form-control" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userDoj">userDoj</label>
+          <div class="input-group">
+            <input id="userDoj" name="userDoj" class="form-control" ngModel >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="active">active</label>
+          <div class="input-group">
+            <input id="active" name="active" class="form-control" ngModel>
+          </div>
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info">Submit</button>
+          </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+    </ng-template>
+
+
+    <ng-template #contentDetails let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">New User</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form  >
+          <div class="form-group">
+            <label >userId</label>
+            <div class="input-group">
+              <input id="uid" class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label >userName</label>
+            <div class="input-group">
+              <input id="uname" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label >userSurname</label>
+            <div class="input-group">
+              <input id="usurname"  class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label >userPincode</label>
+            <div class="input-group">
+              <input id="upincode"  class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label >userDob</label>
+            <div class="input-group">
+              <input id="udob"  class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label>userDoj</label>
+            <div class="input-group">
+              <input id="udoj" class="form-control"  >
+            </div>
+          </div>
+          <div class="form-group">
+            <label>active</label>
+            <div class="input-group">
+              <input id="uactive"  class="form-control" >
+            </div>
+          </div>
+          <div class="border text-center">
+            <button data-dismiss="modal" class="btn btn-info">Submit</button>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+      </div>
+      </ng-template>
+      
+
+
+
+      
+  <ng-template #contentEdit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title2">Update User data</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group"> 
+         <label for="id">userId</label> 
+         <div class="input-group"> 
+            <input formControlName="id" class="form-control"> 
+         </div> 
+       </div>
+        <div class="form-group">
+          <label for="username">UserName</label>
+          <div class="input-group">
+            <input formControlName="username" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="surname">userSurname</label>
+          <div class="input-group">
+            <input formControlName="surname" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pincode">userPincode</label>
+          <div class="input-group">
+            <input formControlName="pincode" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dob">userDob</label>
+          <div class="input-group">
+            <input formControlName="dob" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="doj">userDoj</label>
+            <div class="input-group">
+              <input formControlName="doj" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="uactive">active</label>
+              <div class="input-group">
+                <input formControlName="uactive" class="form-control">
+              </div>
+        </div>
+        <div class="form-group">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+    </div>
+    
+   
